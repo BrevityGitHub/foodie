@@ -1,7 +1,6 @@
 package com.imooc.controller;
 
 import com.imooc.enums.YesOrNo;
-import com.imooc.mapper.CategoryMapperCustom;
 import com.imooc.pojo.Carousel;
 import com.imooc.pojo.Category;
 import com.imooc.pojo.vo.CategoryVO;

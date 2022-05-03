@@ -1,4 +1,6 @@
 E:\JavaArchitecture\food-dev\food-api\src\main\java\com\imooc\Application.java
 E:\JavaArchitecture\food-dev\food-api\src\main\java\com\imooc\config\Swagger2.java
+E:\JavaArchitecture\food-dev\food-api\src\main\java\com\imooc\aspect\ServiceLogAspects.java
+E:\JavaArchitecture\food-dev\food-api\src\main\java\com\imooc\controller\IndexController.java
 E:\JavaArchitecture\food-dev\food-api\src\main\java\com\imooc\controller\PassportController.java
 E:\JavaArchitecture\food-dev\food-api\src\main\java\com\imooc\config\CorsConfig.java
