@@ -1,9 +1,9 @@
 com\imooc\mapper\ItemsCommentsMapper.class
 com\imooc\mapper\ItemsParamMapper.class
-com\imooc\mapper\ItemsMapper.class
 com\imooc\mapper\ItemsSpecMapper.class
 com\imooc\mapper\UsersMapper.class
 com\imooc\mapper\ItemsImgMapper.class
+com\imooc\mapper\CarouselMapper.class
+com\imooc\mapper\ItemsMapper.class
 com\imooc\mapper\CategoryMapper.class
 com\imooc\mapper\CategoryMapperCustom.class
-com\imooc\mapper\CarouselMapper.class

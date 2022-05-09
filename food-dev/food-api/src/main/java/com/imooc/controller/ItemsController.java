@@ -145,4 +145,36 @@ public class ItemsController extends BaseController {
 
 		return IMOOCJSONResult.ok(grid);
 	}
+
+	/**
+	 * 通过分类Id搜索商品列表
+	 *
+	 * @param cartId
+	 * @param sort
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	@GetMapping("/catItems")
+	@ApiOperation(value = "通过分类Id搜索商品列表", notes = "通过分类Id搜索商品列表", httpMethod = "GET")
+	public IMOOCJSONResult catItems(
+			@ApiParam(name = "cartId", value = "关键字", required = true)
+			@RequestParam Integer cartId,
+			@ApiParam(name = "sort", value = "排序")
+			@RequestParam String sort,
+			@ApiParam(name = "page", value = "查询下一页的第几页")
+			@RequestParam Integer page,
+			@ApiParam(name = "pageSize", value = "分页的每一页显示的条数")
+			@RequestParam Integer pageSize) {
+
+		if (page == null) {
+			page = 1;
+		}
+		if (pageSize == null) {
+			pageSize = PAGE_SIZE;
+		}
+		PagedGridResult grid = itemService.searchItemsByThirdCat(cartId, sort, page, pageSize);
+
+		return IMOOCJSONResult.ok(grid);
+	}
 }
