@@ -24,6 +24,12 @@ public class PassportController {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * 用户名是否存在
+	 *
+	 * @param username
+	 * @return
+	 */
 	@ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
 	@GetMapping("/usernameIsExist")
 	public IMOOCJSONResult usernameIsExist(@RequestParam String username) {
@@ -43,6 +49,14 @@ public class PassportController {
 		return IMOOCJSONResult.ok();
 	}
 
+	/**
+	 * 用户注册
+	 *
+	 * @param userBO
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
 	@PostMapping("/regist")
 	public IMOOCJSONResult regist(@RequestBody UserBO userBO,
@@ -86,6 +100,15 @@ public class PassportController {
 		return IMOOCJSONResult.ok();
 	}
 
+	/**
+	 * 用户登录
+	 *
+	 * @param userBO
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	@ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
 	@PostMapping("/login")
 	public IMOOCJSONResult login(@RequestBody UserBO userBO,
@@ -129,7 +152,14 @@ public class PassportController {
 		return userResult;
 	}
 
-
+	/**
+	 * 用户退出登录
+	 *
+	 * @param userId
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@PostMapping("/logout")
 	@ApiOperation(value = "用户退出登录", notes = "用户退出登录", httpMethod = "POST")
 	public IMOOCJSONResult logout(@RequestParam String userId,

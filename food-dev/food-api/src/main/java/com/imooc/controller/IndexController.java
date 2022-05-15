@@ -61,6 +61,12 @@ public class IndexController {
 		return IMOOCJSONResult.ok(list);
 	}
 
+	/**
+	 * 获取商品子分类
+	 *
+	 * @param rootCatId
+	 * @return
+	 */
 	@GetMapping("/subCat/{rootCatId}")
 	@ApiOperation(value = "获取商品子分类", notes = "获取商品子分类", httpMethod = "GET")
 	public IMOOCJSONResult subCat(
@@ -73,6 +79,12 @@ public class IndexController {
 		return IMOOCJSONResult.ok(list);
 	}
 
+	/**
+	 * 查询每个一级分类下的最新的六条商品数据
+	 *
+	 * @param rootCatId
+	 * @return
+	 */
 	@GetMapping("/sixNewItems/{rootCatId}")
 	@ApiOperation(value = "查询每个一级分类下的最新的六条商品数据", notes = "查询每个一级分类下的最新的六条商品数据", httpMethod = "GET")
 	public IMOOCJSONResult sixNewItems(

@@ -1,10 +1,12 @@
 package com.imooc.utils;
 
-import java.text.*;
-import java.util.*;
-
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateUtils;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class DateUtil {
 
@@ -23,7 +25,7 @@ public class DateUtil {
      */
     public static String DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static String DATE_PATTERN = "yyyyMMddHHmmss";
-   
+
     /**
      * 则个
      */
@@ -168,10 +170,10 @@ public class DateUtil {
     }
 
     /**
-     * @param isoString  
-     * @param fmt 
+     * @param isoString
+     * @param fmt
      * @param field   Calendar.YEAR/Calendar.MONTH/Calendar.DATE
-     * @param amount 
+     * @param amount
      * @return
      * @throws ParseException
      */
@@ -198,7 +200,7 @@ public class DateUtil {
      * @param isoString
      * @param field the time field.
      * @param up Indicates if rolling up or rolling down the field value.
-     * @param expanded use formating char's
+     * @param fmt use formating char's
      * @exception ParseException if an unknown field value is given.
      */
     public static final String roll(String isoString, String fmt, int field,
@@ -229,9 +231,9 @@ public class DateUtil {
 
     /**
      *  java.util.Date
-     * @param dateText  
-     * @param format  
-     * @param lenient  
+     * @param dateText
+     * @param format
+     * @param lenient
      * @return
      */
     public static Date stringToDate(String dateText, String format,
@@ -271,8 +273,8 @@ public class DateUtil {
     }
 
     /** java.util.Date
-     * @param dateText  
-     * @param format  
+     * @param dateString
+     * @param format
      * @return
      */
     public static Date stringToDate(String dateString, String format) {
@@ -282,16 +284,16 @@ public class DateUtil {
 
     /**
      * java.util.Date
-     * @param dateText  
+     * @param dateString
      */
     public static Date stringToDate(String dateString) {
         return stringToDate(dateString, ISO_EXPANDED_DATE_FORMAT, LENIENT_DATE);
     }
 
-    /**  
-     * @return 
-     * @param pattern 
-     * @param date  
+    /**
+     * @return
+     * @param pattern
+     * @param date
      */
     public static String dateToString(Date date, String pattern) {
 
@@ -321,8 +323,8 @@ public class DateUtil {
         return dateToString(date, ISO_EXPANDED_DATE_FORMAT);
     }
 
-    /**  
-     * @return  
+    /**
+     * @return
      */
     public static Date getCurrentDateTime() {
         Calendar calNow = Calendar.getInstance();
@@ -332,8 +334,8 @@ public class DateUtil {
     }
 
     /**
-     *  
-     * @param pattern  
+     *
+     * @param pattern
      * @return
      */
     public static String getCurrentDateString(String pattern) {
@@ -351,7 +353,6 @@ public class DateUtil {
     /**
      * 返回固定格式的当前时间
      *   yyyy-MM-dd hh:mm:ss
-     * @param date
      * @return
      */
     public static String dateToStringWithTime( ) {
@@ -359,7 +360,7 @@ public class DateUtil {
         return dateToString(new Date(), DATETIME_PATTERN);
     }
 
-    
+
     /**
      *   yyyy-MM-dd hh:mm:ss
      * @param date
@@ -371,7 +372,7 @@ public class DateUtil {
     }
 
     /**
-     *  
+     *
      * @param date
      * @param days
      * @return java.util.Date
@@ -387,9 +388,8 @@ public class DateUtil {
     }
 
     /**
-     *  
+     *
      * @param date
-     * @param days
      * @return java.util.Date
      */
     public static Date dateIncreaseByMonth(Date date, int mnt) {
@@ -403,7 +403,7 @@ public class DateUtil {
     }
 
     /**
-     *  
+     *
      * @param date
      * @param mnt
      * @return java.util.Date
@@ -419,7 +419,7 @@ public class DateUtil {
     }
 
     /**
-     *  
+     *
      * @param date   yyyy-MM-dd
      * @param days
      * @return  yyyy-MM-dd
@@ -429,8 +429,8 @@ public class DateUtil {
     }
 
     /**
-     * @param date  
-     * @param fmt  
+     * @param date
+     * @param fmt
      * @param days
      * @return
      */
@@ -439,10 +439,10 @@ public class DateUtil {
     }
 
     /**
-     *  
-     * @param src  
-     * @param srcfmt  
-     * @param desfmt 
+     *
+     * @param src
+     * @param srcfmt
+     * @param desfmt
      * @return
      */
     public static String stringToString(String src, String srcfmt,
@@ -451,8 +451,8 @@ public class DateUtil {
     }
 
     /**
-     *  
-     * @param date  
+     *
+     * @param date
      * @return string
      */
     public static String getYear(Date date) {
@@ -463,8 +463,8 @@ public class DateUtil {
     }
 
     /**
-     *  
-     * @param date  
+     *
+     * @param date
      * @return string
      */
     public static String getMonth(Date date) {
@@ -475,7 +475,7 @@ public class DateUtil {
     }
 
     /**
-     * @param date  
+     * @param date
      * @return string
      */
     public static String getDay(Date date) {
@@ -484,16 +484,16 @@ public class DateUtil {
         String cur_day = formater.format(date);
         return cur_day;
     }
-    
+
     public static int getDayInt(Date date) {
         SimpleDateFormat formater = new SimpleDateFormat(
                 "dd");
         String cur_day = formater.format(date);
         return Integer.valueOf(cur_day);
     }
-    
+
     /**
-     * @param date  
+     * @param date
      * @return string
      */
     public static String getHour(Date date) {
@@ -501,7 +501,7 @@ public class DateUtil {
                 "HH");
         String cur_day = formater.format(date);
         return cur_day;
-    }    
+    }
 
     public static int getMinsFromDate(Date dt) {
         GregorianCalendar cal = new GregorianCalendar();
@@ -570,51 +570,51 @@ public class DateUtil {
                      + "00";
         return dateFormat;
     }
-    
+
     public static String sDateFormat() {
-    	return new SimpleDateFormat(DATE_PATTERN).format(Calendar.getInstance().getTime());	
+    	return new SimpleDateFormat(DATE_PATTERN).format(Calendar.getInstance().getTime());
     }
-    
+
     /**
-     * 
+     *
      * @Description: 获得本月的第一天日期
      * @return
-     * 
+     *
      * @author leechenxiang
      * @date 2017年5月31日 下午1:37:34
      */
     public static String getFirstDateOfThisMonth() {
-    	
+
     	SimpleDateFormat format = new SimpleDateFormat(ISO_EXPANDED_DATE_FORMAT);
-		
+
 		Calendar calendarFirst = Calendar.getInstance();
-		calendarFirst = Calendar.getInstance();  
-        calendarFirst.add(Calendar.MONTH, 0);  
-        calendarFirst.set(Calendar.DAY_OF_MONTH, 1);  
-        String firstDate = format.format(calendarFirst.getTime()); 
-        
+		calendarFirst = Calendar.getInstance();
+        calendarFirst.add(Calendar.MONTH, 0);
+        calendarFirst.set(Calendar.DAY_OF_MONTH, 1);
+        String firstDate = format.format(calendarFirst.getTime());
+
         return firstDate;
     }
-    
+
     /**
-     * 
+     *
      * @Description: 获得本月的最后一天日期
      * @return
-     * 
+     *
      * @author leechenxiang
      * @date 2017年5月31日 下午1:37:50
      */
     public static String getLastDateOfThisMonth() {
-    	SimpleDateFormat format = new SimpleDateFormat(ISO_EXPANDED_DATE_FORMAT);  
-		
+    	SimpleDateFormat format = new SimpleDateFormat(ISO_EXPANDED_DATE_FORMAT);
+
 		Calendar calendarLast = Calendar.getInstance();
 		calendarLast.setTime(new Date());
 		calendarLast.getActualMaximum(Calendar.DAY_OF_MONTH);
-		
-		String lastDate = format.format(calendarLast.getTime());  
+
+		String lastDate = format.format(calendarLast.getTime());
 		return lastDate;
     }
-    
+
     /**
      * @Description: 判断字符串日期是否匹配指定的格式化日期
      */
@@ -642,7 +642,7 @@ public class DateUtil {
 			return false;
 		}
 	}
-    
+
     public static void main(String[] args)
 	{
 //    	String timeDir=DateUtil.dateToString(new Date(),DateUtil.ISO_EXPANDED_DATE_FORMAT);
@@ -650,5 +650,5 @@ public class DateUtil {
     	boolean flag = DateUtil.isValidDate("1990-10-32", DateUtil.ISO_EXPANDED_DATE_FORMAT);
     	System.out.println(flag);
 	}
-    
+
 }
